@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'dart:async';
+import 'package:firebase_analytics/firebase_analytics.dart';
 
 // Debug packages
 // import 'package:flutter/services.dart';
@@ -10,6 +11,7 @@ import 'dart:async';
 import 'package:flutter/rendering.dart';
 
 final googleSignIn = new GoogleSignIn();
+final analytics = new FirebaseAnalytics();
 
 
 void main() {
@@ -144,6 +146,7 @@ class ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
       _messages.insert(0, message);
     });
     message.animationController.forward();
+    analytics.logEvent(name: 'send_message');
   }
 
   Future<Null> _ensureLoggedIn() async {
@@ -151,9 +154,11 @@ class ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
     if (user == null)
       // Attempt to sign in a previously authenticated user
       user = await googleSignIn.signInSilently();
-    if (user == null)
+    if (user == null)  {
       // Start interactive sign-in process
       await googleSignIn.signIn();
+      analytics.logLogin();
+    }
   }
 }
 
