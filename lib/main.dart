@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'dart:async';
 
 // Debug packages
 // import 'package:flutter/services.dart';
 //import 'dart:developer';
 import 'package:flutter/rendering.dart';
 
-const String _name = "Your Name";
+final googleSignIn = new GoogleSignIn();
 
 
 void main() {
@@ -121,13 +123,16 @@ class ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
     super.dispose();
   }
 
-  void _handleSubmitted(String text) {
-    //debugDumpRenderTree();
-    debugPrint('hey: $text');
+  Future<Null> _handleSubmitted(String text) async {
     _textController.clear();
     setState(() {
       _isComposing = false;
     });
+    await _ensureLoggedIn();
+    _sendMessage(text: text);
+  }
+
+  void _sendMessage({ String text }) {
     ChatMessage message = new ChatMessage(
       text: text,
       animationController: new AnimationController(
@@ -140,6 +145,16 @@ class ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
     });
     message.animationController.forward();
   }
+
+  Future<Null> _ensureLoggedIn() async {
+    GoogleSignInAccount user = googleSignIn.currentUser;
+    if (user == null)
+      // Attempt to sign in a previously authenticated user
+      user = await googleSignIn.signInSilently();
+    if (user == null)
+      // Start interactive sign-in process
+      await googleSignIn.signIn();
+  }
 }
 
 
@@ -148,7 +163,7 @@ class ChatMessage extends StatelessWidget {
   final String text;
   final AnimationController animationController;
 
-  @override
+  //@override
   Widget build(BuildContext context) {
     return new SizeTransition(
       sizeFactor: new CurvedAnimation(
@@ -163,12 +178,19 @@ class ChatMessage extends StatelessWidget {
           children: <Widget>[
             new Container(
               margin: const EdgeInsets.only(right: 16.0),
-              child: new CircleAvatar(child: new Text(_name[0])),
+              child: new CircleAvatar(
+                child: new CircleAvatar(
+                  backgroundImage: new NetworkImage(
+                    googleSignIn.currentUser.photoUrl
+                  )
+                )
+              ),
             ),
             new Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                new Text(_name, style: Theme.of(context).textTheme.subhead),
+                new Text(googleSignIn.currentUser.displayName,
+                         style: Theme.of(context).textTheme.subhead),
                 new Container(
                   margin: const EdgeInsets.only(top: 5.0),
                   child: new Text(text),

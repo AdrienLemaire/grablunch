@@ -1,4 +1,4 @@
-package com.yourcompany.myapp;
+package com.dori.myapp;
 
 import android.os.Bundle;
 

@@ -1,9 +1,15 @@
 name: myapp
-description: A new Flutter project.
+description: A new Flutter project to learn about Flutter
 
 dependencies:
   flutter:
     sdk: flutter
+  image_picker: 0.1.1
+  google_sign_in: 1.0.1
+  firebase_analytics: 0.1.1
+  firebase_auth: 0.3.1
+  firebase_database: 0.1.2
+  firebase_storage: 0.0.7
 
 dev_dependencies:
   flutter_test:
@@ -31,7 +37,7 @@ flutter:
 
   # For details regarding adding assets from package dependencies, see
   # https://flutter.io/assets-and-images/
-  
+
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
   # "family" key with the font family name, and a "fonts" key with a
