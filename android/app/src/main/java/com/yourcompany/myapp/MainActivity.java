@@ -1,4 +1,4 @@
-package com.dori.myapp;
+package com.dori.grablunch;
 
 import android.os.Bundle;
 
