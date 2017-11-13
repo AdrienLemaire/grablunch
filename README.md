@@ -1,8 +1,4 @@
-# myapp
+# GrabLunch
 
-A new Flutter project.
-
-## Getting Started
-
-For help getting started with Flutter, view our online
-[documentation](http://flutter.io/).
+Small app to find out who in the office want to go grab lunch together,
+while learning about Dart and Flutter.
