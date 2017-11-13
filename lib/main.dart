@@ -24,14 +24,14 @@ final auth = FirebaseAuth.instance;
 
 void main() {
   //debugPaintSizeEnabled=true;
-  runApp(new FriendlyChatApp());
+  runApp(new GrabLunchApp());
 }
 
-class FriendlyChatApp extends StatelessWidget {
+class GrabLunchApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      title: "Friendlychat",
+      title: "GrabLunch",
       theme: defaultTargetPlatform == TargetPlatform.iOS
         ? kIOSTheme
         : kDefaultTheme,
@@ -54,7 +54,7 @@ class ChatScreenState extends State<ChatScreen> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text("Friendlychat"),
+        title: new Text("GrabLunch"),
         elevation:
           Theme.of(context).platform == TargetPlatform.iOS ? 0.0 : 4.0,
       ),
