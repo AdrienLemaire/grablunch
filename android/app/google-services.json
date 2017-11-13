@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "36690262968",
-    "firebase_url": "https://flutter-app-c215d.firebaseio.com",
-    "project_id": "flutter-app-c215d",
-    "storage_bucket": "flutter-app-c215d.appspot.com"
+    "project_number": "475986721233",
+    "firebase_url": "https://grablunch-ede69.firebaseio.com",
+    "project_id": "grablunch-ede69",
+    "storage_bucket": "grablunch-ede69.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:36690262968:android:365926814f60a051",
+        "mobilesdk_app_id": "1:475986721233:android:c4150652c283e6c3",
         "android_client_info": {
           "package_name": "com.dori.grablunch"
         }
       },
       "oauth_client": [
         {
-          "client_id": "36690262968-8ae2n20pg081v9im32p3r2u6v5j1iish.apps.googleusercontent.com",
+          "client_id": "475986721233-i0c4f9dh55lo8c91381e1gvfisqqn3a9.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.dori.grablunch",
@@ -23,13 +23,13 @@
           }
         },
         {
-          "client_id": "36690262968-fj304b3fot76cmfi21pb381nraf585au.apps.googleusercontent.com",
+          "client_id": "475986721233-j5pna3t9efhrp29l8ao0amonesdkjeb0.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCWBpIthXpcqmREWazVIBlvz2vXcZNbMQw"
+          "current_key": "AIzaSyAL2AwLAa9MZHD4uLNGPfYq5tf4WUxh3UA"
         }
       ],
       "services": {
@@ -40,7 +40,7 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "36690262968-fj304b3fot76cmfi21pb381nraf585au.apps.googleusercontent.com",
+              "client_id": "475986721233-j5pna3t9efhrp29l8ao0amonesdkjeb0.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
