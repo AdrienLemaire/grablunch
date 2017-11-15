@@ -13,7 +13,7 @@ class AppScreenState extends State<AppScreen> {
   final ChatScreen chat = new ChatScreen();
   final ListScreen list = new ListScreen();
   final Icon chatIcon = new Icon(Icons.chat);
-  final Icon listIcon = new Icon(Icons.fastfood);
+  final Icon listIcon = new Icon(Icons.group);
 
   void _toggleScreen() {
     setState(() {
