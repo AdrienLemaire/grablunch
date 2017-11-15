@@ -17,6 +17,7 @@ class ListScreenState extends State<ListScreen> {
       body: new Container(
         child: new Column(
           children: <Widget>[
+            // List of Lunchers
             new Flexible(
               child: new FirebaseAnimatedList(
                 query: reference,
@@ -30,16 +31,6 @@ class ListScreenState extends State<ListScreen> {
                 },
               ),
             ),
-            new Divider(height: 1.0),
-            new Container(
-              decoration: new BoxDecoration(
-                color: Theme.of(context).cardColor),
-              child: new IconButton(
-                icon: new Icon(Icons.fastfood),
-                tooltip: 'Join',
-                onPressed: () {},
-              ),
-            ),
           ],
         ),
         decoration: Theme.of(context).platform == TargetPlatform.iOS
@@ -47,6 +38,13 @@ class ListScreenState extends State<ListScreen> {
               new Border(top: new BorderSide(color: Colors.grey[200])))
           : null,
       ),
+      // Grab lunch button
+      floatingActionButton: new FloatingActionButton(
+        child: new Icon(Icons.fastfood),
+        tooltip: 'Join',
+        onPressed: () {},
+      ),
+
     );
   }
 }
