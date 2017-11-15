@@ -27,7 +27,6 @@ class ListScreenState extends State<ListScreen> {
   }
 
   Future<Null> _checkIfLuncher() async {
-    print('check if luncher');
     await ensureLoggedIn();
     DataSnapshot snapshot = await filterToday(reference).once();
     String _newKey;
@@ -43,7 +42,6 @@ class ListScreenState extends State<ListScreen> {
 
   @override
   Widget build(BuildContext context) {
-    print('IN BUILD (${_luncherKey})');
     return new Scaffold(
       body: new Container(
         child: new Column(
