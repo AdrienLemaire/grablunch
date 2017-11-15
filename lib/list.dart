@@ -5,6 +5,7 @@ import 'package:firebase_database/ui/firebase_animated_list.dart';
 //import 'dart:developer';
 
 import 'package:grablunch/auth.dart' show ensureLoggedIn, googleSignIn, analytics;
+import 'package:grablunch/filters.dart' show filterToday;
 
 
 class ListScreen extends StatefulWidget {
@@ -17,25 +18,32 @@ class ListScreenState extends State<ListScreen> {
   String _luncherKey;
   final Icon joinIcon = new Icon(Icons.local_dining);
   final Icon cancelIcon = new Icon(Icons.close);
-  DatabaseReference userRef;
+  ListScreenState() {
+    reference.keepSynced(true);
+    _checkIfLuncher();
+    reference.onChildChanged.listen(
+      (Event event) => _checkIfLuncher()
+    );
+  }
 
   Future<Null> _checkIfLuncher() async {
+    print('check if luncher');
     await ensureLoggedIn();
-    DataSnapshot snapshot = await reference.once();
+    DataSnapshot snapshot = await filterToday(reference).once();
+    String _newKey;
     snapshot.value?.forEach((key, value) {
       if (value['name'] == googleSignIn.currentUser.displayName) {
-        setState(() {
-          _luncherKey = key;
-        });
+        _newKey = key;
       }
     });
+    if (_luncherKey != _newKey) {
+      setState(() { _luncherKey = _newKey; });
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    reference.keepSynced(true);
-    _checkIfLuncher();
-
+    print('IN BUILD (${_luncherKey})');
     return new Scaffold(
       body: new Container(
         child: new Column(
@@ -43,7 +51,7 @@ class ListScreenState extends State<ListScreen> {
             // List of Lunchers
             new Flexible(
               child: new FirebaseAnimatedList(
-                query: reference,
+                query: filterToday(reference),
                 sort: (a, b) => b.key.compareTo(a.key),
                 padding: new EdgeInsets.all(8.0),
                 itemBuilder: (_, DataSnapshot snapshot, Animation<double> animation) {
@@ -81,15 +89,13 @@ class ListScreenState extends State<ListScreen> {
       'photoUrl': googleSignIn.currentUser.photoUrl,
       'date': new DateTime.now().millisecondsSinceEpoch,
     });
-    analytics.logEvent(name: 'join_lunch');
     _checkIfLuncher();
+    analytics.logEvent(name: 'join_lunch');
   }
 
   void _cancelLunch() {
     reference.child(_luncherKey).remove();
-    setState(() {
-      _luncherKey = null;
-    });
+    _checkIfLuncher();
     analytics.logEvent(name: 'cancel_lunch');
   }
 }
