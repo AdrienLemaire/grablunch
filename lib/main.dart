@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart';
 // Debug packages
 // import 'package:flutter/services.dart';
 //import 'dart:developer';
-import 'package:grablunch/chat.dart' show ChatScreen;
+import 'package:grablunch/app.dart' show AppScreen;
 
 
 void main() {
@@ -21,7 +21,7 @@ class GrabLunchApp extends StatelessWidget {
       theme: defaultTargetPlatform == TargetPlatform.iOS
         ? kIOSTheme
         : kDefaultTheme,
-      home: new ChatScreen(),
+      home: new AppScreen(),
     );
   }
 }
