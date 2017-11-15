@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart';
 // Debug packages
 // import 'package:flutter/services.dart';
 //import 'dart:developer';
-import 'chat.dart' show ChatScreen;
+import 'package:grablunch/chat.dart' show ChatScreen;
 
 
 void main() {
