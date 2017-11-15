@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
-import 'dart:developer';
+//import 'dart:developer';
 
 import 'package:grablunch/auth.dart' show ensureLoggedIn, googleSignIn, analytics;
 
@@ -14,13 +14,28 @@ class ListScreen extends StatefulWidget {
 
 class ListScreenState extends State<ListScreen> {
   final reference = FirebaseDatabase.instance.reference().child('lunchers');
-  bool _isLuncher = false;
+  String _luncherKey;
   final Icon joinIcon = new Icon(Icons.local_dining);
   final Icon cancelIcon = new Icon(Icons.close);
   DatabaseReference userRef;
 
+  Future<Null> _checkIfLuncher() async {
+    await ensureLoggedIn();
+    DataSnapshot snapshot = await reference.once();
+    snapshot.value?.forEach((key, value) {
+      if (value['name'] == googleSignIn.currentUser.displayName) {
+        setState(() {
+          _luncherKey = key;
+        });
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    reference.keepSynced(true);
+    _checkIfLuncher();
+
     return new Scaffold(
       body: new Container(
         child: new Column(
@@ -48,8 +63,8 @@ class ListScreenState extends State<ListScreen> {
       ),
       // Grab lunch button
       floatingActionButton: new FloatingActionButton(
-        child: _isLuncher ? cancelIcon : joinIcon,
-        tooltip: _isLuncher ? 'Cancel' : 'Join',
+        child: (_luncherKey != null) ? cancelIcon : joinIcon,
+        tooltip: (_luncherKey != null) ? 'Cancel' : 'Join',
         onPressed: () => _handleSubmitted(),
       ),
     );
@@ -57,23 +72,23 @@ class ListScreenState extends State<ListScreen> {
 
   Future<Null> _handleSubmitted() async {
     await ensureLoggedIn();
-    _isLuncher ? _cancelLunch() : _joinLunch();
-    setState(() {
-      _isLuncher = !_isLuncher;
-    });
+    (_luncherKey != null) ? _cancelLunch() : _joinLunch();
   }
 
-  void _joinLunch() {
-    userRef = reference.push();
-    userRef.set({
+  void _joinLunch () {
+    reference.push().set({
       'name': googleSignIn.currentUser.displayName,
       'photoUrl': googleSignIn.currentUser.photoUrl,
     });
     analytics.logEvent(name: 'join_lunch');
+    _checkIfLuncher();
   }
 
   void _cancelLunch() {
-    userRef.remove();
+    reference.child(_luncherKey).remove();
+    setState(() {
+      _luncherKey = null;
+    });
     analytics.logEvent(name: 'cancel_lunch');
   }
 }
