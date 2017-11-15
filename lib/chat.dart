@@ -23,6 +23,16 @@ class ChatScreenState extends State<ChatScreen> {
   bool _isComposing = false;
   final reference = FirebaseDatabase.instance.reference().child('messages');
 
+  Query _getQuery() {
+    DateTime now = new DateTime.now();
+    DateTime today = new DateTime(now.year, now.month, now.day);
+    DateTime tomorrow = new DateTime(now.year, now.month, now.day+1);
+    print('Filter from ${today.millisecondsSinceEpoch} to ${tomorrow.millisecondsSinceEpoch}');
+    return reference.orderByChild('date')
+      .startAt(today.millisecondsSinceEpoch)
+      .endAt(tomorrow.millisecondsSinceEpoch);
+  }
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -31,7 +41,7 @@ class ChatScreenState extends State<ChatScreen> {
           children: <Widget>[
             new Flexible(
               child: new FirebaseAnimatedList(
-                query: reference,
+                query: _getQuery(),
                 sort: (a, b) => b.key.compareTo(a.key),
                 padding: new EdgeInsets.all(8.0),
                 reverse: true,
