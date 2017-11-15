@@ -79,6 +79,7 @@ class ListScreenState extends State<ListScreen> {
     reference.push().set({
       'name': googleSignIn.currentUser.displayName,
       'photoUrl': googleSignIn.currentUser.photoUrl,
+      'date': new DateTime.now().millisecondsSinceEpoch,
     });
     analytics.logEvent(name: 'join_lunch');
     _checkIfLuncher();

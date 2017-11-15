@@ -127,6 +127,7 @@ class ChatScreenState extends State<ChatScreen> {
       'imageUrl': imageUrl,
       'senderName': googleSignIn.currentUser.displayName,
       'senderPhotoUrl': googleSignIn.currentUser.photoUrl,
+      'date': new DateTime.now().millisecondsSinceEpoch,
     });
     analytics.logEvent(name: 'send_message');
   }
