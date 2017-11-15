@@ -4,17 +4,12 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-import 'package:firebase_analytics/firebase_analytics.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:image_picker/image_picker.dart';
 
-final googleSignIn = new GoogleSignIn();
-final analytics = new FirebaseAnalytics();
-final auth = FirebaseAuth.instance;
+import 'package:grablunch/auth.dart' show ensureLoggedIn, googleSignIn, analytics;
 
 
 class ChatScreen extends StatefulWidget {
@@ -75,7 +70,7 @@ class ChatScreenState extends State<ChatScreen> {
             child: new IconButton(
               icon: new Icon(Icons.photo_camera),
               onPressed: () async {
-                await _ensureLoggedIn();
+                await ensureLoggedIn();
                 File imageFile = await ImagePicker.pickImage();
                 int random = new Random().nextInt(100000);
                 StorageReference ref = FirebaseStorage.instance.ref().child("image_$random.jpg");
@@ -122,7 +117,7 @@ class ChatScreenState extends State<ChatScreen> {
     setState(() {
       _isComposing = false;
     });
-    await _ensureLoggedIn();
+    await ensureLoggedIn();
     _sendMessage(text: text);
   }
 
@@ -134,26 +129,6 @@ class ChatScreenState extends State<ChatScreen> {
       'senderPhotoUrl': googleSignIn.currentUser.photoUrl,
     });
     analytics.logEvent(name: 'send_message');
-  }
-
-  Future<Null> _ensureLoggedIn() async {
-    GoogleSignInAccount user = googleSignIn.currentUser;
-    if (user == null)
-      // Attempt to sign in a previously authenticated user
-      user = await googleSignIn.signInSilently();
-    if (user == null)  {
-      // Start interactive sign-in process
-      await googleSignIn.signIn();
-      analytics.logLogin();
-    }
-    if (await auth.currentUser() == null) {
-      GoogleSignInAuthentication credentials =
-        await googleSignIn.currentUser.authentication;
-      await auth.signInWithGoogle(
-        idToken: credentials.idToken,
-        accessToken: credentials.accessToken,
-      );
-    }
   }
 }
 

@@ -1,6 +1,10 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
+import 'dart:developer';
+
+import 'package:grablunch/auth.dart' show ensureLoggedIn, googleSignIn, analytics;
 
 
 class ListScreen extends StatefulWidget {
@@ -10,6 +14,10 @@ class ListScreen extends StatefulWidget {
 
 class ListScreenState extends State<ListScreen> {
   final reference = FirebaseDatabase.instance.reference().child('lunchers');
+  bool _isLuncher = false;
+  final Icon joinIcon = new Icon(Icons.local_dining);
+  final Icon cancelIcon = new Icon(Icons.close);
+  DatabaseReference userRef;
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +31,9 @@ class ListScreenState extends State<ListScreen> {
                 query: reference,
                 sort: (a, b) => b.key.compareTo(a.key),
                 padding: new EdgeInsets.all(8.0),
-                reverse: true,
                 itemBuilder: (_, DataSnapshot snapshot, Animation<double> animation) {
                   return new ListItem(
+                    snapshot: snapshot,
                     animation: animation,
                   );
                 },
@@ -40,12 +48,33 @@ class ListScreenState extends State<ListScreen> {
       ),
       // Grab lunch button
       floatingActionButton: new FloatingActionButton(
-        child: new Icon(Icons.fastfood),
-        tooltip: 'Join',
-        onPressed: () {},
+        child: _isLuncher ? cancelIcon : joinIcon,
+        tooltip: _isLuncher ? 'Cancel' : 'Join',
+        onPressed: () => _handleSubmitted(),
       ),
-
     );
+  }
+
+  Future<Null> _handleSubmitted() async {
+    await ensureLoggedIn();
+    _isLuncher ? _cancelLunch() : _joinLunch();
+    setState(() {
+      _isLuncher = !_isLuncher;
+    });
+  }
+
+  void _joinLunch() {
+    userRef = reference.push();
+    userRef.set({
+      'name': googleSignIn.currentUser.displayName,
+      'photoUrl': googleSignIn.currentUser.photoUrl,
+    });
+    analytics.logEvent(name: 'join_lunch');
+  }
+
+  void _cancelLunch() {
+    userRef.remove();
+    analytics.logEvent(name: 'cancel_lunch');
   }
 }
 
@@ -66,21 +95,19 @@ class ListItem extends StatelessWidget {
       child: new Container(
         margin: const EdgeInsets.symmetric(vertical: 10.0),
         child: new Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             new Container(
               margin: const EdgeInsets.only(right: 16.0),
               child: new CircleAvatar(
                 backgroundImage: new NetworkImage(
-                  snapshot.value['senderPhotoUrl']
+                  snapshot.value['photoUrl']
                 ),
               )
             ),
             new Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                new Text(snapshot.value['senderName'],
-                         style: Theme.of(context).textTheme.subhead),
+                new Text(snapshot.value['name']),
               ],
             ),
           ],
