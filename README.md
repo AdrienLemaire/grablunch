@@ -1,5 +1,10 @@
 # GrabLunch
 
+![Android ok](https://img.shields.io/badge/Android-OK-green.svg)
+![iOS not ready](https://img.shields.io/badge/iOS-Not%20ready-red.svg)
+![v0.1](https://img.shields.io/badge/version-v0.1-yellow.svg)
+
+
 Small app to find out who in the office want to go grab lunch together,
 while learning about Dart and Flutter.
 
