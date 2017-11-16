@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "475986721233-nc0set6npv09kkltt6rv0bslskqc5ejp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dori.grablunch",
+            "certificate_hash": "fcb673813948cd381804c25ed7d844c05210096a"
+          }
+        },
+        {
           "client_id": "475986721233-i0c4f9dh55lo8c91381e1gvfisqqn3a9.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
