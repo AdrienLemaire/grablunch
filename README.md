@@ -8,6 +8,15 @@
 Small app to find out who in the office want to go grab lunch together,
 while learning about Dart and Flutter.
 
+## Install
+
+### Android
+
+Install the apk in your phone: [Download](https://storage.googleapis.com/miraidenshi/apks/grablunch_v0.1.apk)
+
+### iOS
+
+Coming soon
 
 ## List view
 
