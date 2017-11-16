@@ -6,9 +6,9 @@ while learning about Dart and Flutter.
 
 ## List view
 
-![](static/list.jpg)
+<img src="https://github.com/Fandekasp/grablunch/raw/master/static/list.jpg" alt="list view" width="200" height="400">
 
 
 ## Chat view
 
-![](static/chat.jpg)
+<img src="https://github.com/Fandekasp/grablunch/raw/master/static/chat.jpg" alt="list view" width="100" height="300">
