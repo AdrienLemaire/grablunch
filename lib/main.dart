@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 
 // Debug packages
 //import 'package:flutter/services.dart';
@@ -14,7 +15,13 @@ void main() {
   runApp(new GrabLunchApp());
 }
 
+
 class GrabLunchApp extends StatelessWidget {
+  GrabLunchApp() {
+    final FirebaseMessaging _firebaseMessaging = new FirebaseMessaging();
+    _firebaseMessaging.configure();
+  }
+
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
