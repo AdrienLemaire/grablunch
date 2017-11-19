@@ -1,0 +1,3 @@
+DATA='{"notification": {"body": "this is a body","title": "this is a title"}, "priority": "high", "data": {"click_action": "FLUTTER_NOTIFICATION_CLICK", "id": "1", "status": "done"}, "to": "dSp1aRsHpKs:APA91bEubyIGwyR30gv7jkMX09TKyhZ_B8RrUEs6NaFvBYGKz3QFbOExIQHas7Lyhb0RR7T1PKq63qO3p3QNIBJwaUOcmVZ9ol53ZJ-k5OB41--4JeTobKuDoLeI0Dts4OnR_bhSuz4B"}'
+
+curl https://fcm.googleapis.com/fcm/send -H "Content-Type:application/json" -X POST -d "$DATA" -H "Authorization: key=AAAAbtME-dE:APA91bFgfpIN6x3Og60GeNl-i-AYPmlUQIj_sVcPbjNWqCf_YjWz9atMFYqBBYE9rBfbAeHBA42VROnzRmCXUKfB0kWt3M12QYTzWKQ67nTFrrS1XYOkoOOIbxzkFj8h2jcSGraJcYMO"
