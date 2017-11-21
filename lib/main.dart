@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 // Debug packages
 //import 'package:flutter/services.dart';
@@ -23,6 +24,14 @@ class GrabLunchApp extends StatelessWidget {
         ? kIOSTheme
         : kDefaultTheme,
       home: new AppScreen(),
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      supportedLocales: [
+        const Locale('en', 'US'),
+        const Locale('ja', 'JP'),
+      ],
     );
   }
 }
