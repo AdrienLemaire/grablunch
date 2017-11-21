@@ -21,9 +21,9 @@ class AppLocalizations {
 
   String get title {
     return Intl.message(
-      'Hello World',
+      'GrabLunch',
       name: 'title',
-      desc: 'Title for the App application',
+      desc: 'Title for the Grablunch application',
     );
   }
 }
