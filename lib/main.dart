@@ -6,7 +6,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 // Debug packages
 //import 'package:flutter/services.dart';
 //import 'package:flutter/rendering.dart';
-import 'package:grablunch/app.dart' show AppScreen;
+import 'package:grablunch/list.dart' show ListScreen;
 import 'package:grablunch/localization.dart'
   show AppLocalizations, AppLocalizationsDelegate;
 
@@ -24,7 +24,7 @@ class GrabLunchApp extends StatelessWidget {
       theme: defaultTargetPlatform == TargetPlatform.iOS
         ? kIOSTheme
         : kDefaultTheme,
-      home: new AppScreen(),
+      home: new ListScreen(),
       localizationsDelegates: [
         const AppLocalizationsDelegate(),
         GlobalMaterialLocalizations.delegate,

@@ -55,6 +55,20 @@ class AppLocalizations {
       desc: 'Chat view helper text for the input',
     );
   }
+  String get chat {
+    return Intl.message(
+      'Chat',
+      name: 'chat',
+      desc: 'Tooltip for chat icon button',
+    );
+  }
+  String get list {
+    return Intl.message(
+      'List',
+      name: 'list',
+      desc: 'Tooltip for list icon button',
+    );
+  }
 
 }
 

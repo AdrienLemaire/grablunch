@@ -28,5 +28,18 @@
     "description": "Chat view helper text for the input",
     "type": "text",
     "placeholders": {}
+  },
+  "chat": "Chat",
+  "@chat": {
+    "description": "Tooltip for chat icon button",
+    "type": "text",
+    "placeholders": {}
+  },
+  "list": "List",
+  "@list": {
+    "description": "Tooltip for list icon button",
+    "type": "text",
+    "placeholders": {}
   }
+
 }

@@ -6,6 +6,7 @@ import 'package:firebase_database/ui/firebase_animated_list.dart';
 
 import 'package:grablunch/auth.dart' show ensureLoggedIn, googleSignIn, analytics;
 import 'package:grablunch/filters.dart' show filterToday;
+import 'package:grablunch/localization.dart' show AppLocalizations;
 
 
 class ListScreen extends StatefulWidget {
@@ -43,6 +44,18 @@ class ListScreenState extends State<ListScreen> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+      appBar: new AppBar(
+        title: new Text(AppLocalizations.of(context).titleList),
+        elevation:
+          Theme.of(context).platform == TargetPlatform.iOS ? 0.0 : 4.0,
+        actions: <Widget>[
+          new IconButton(
+            icon: new Icon(Icons.chat),
+            tooltip: AppLocalizations.of(context).chat,
+            onPressed: Navigator.of(context).push(chatRoute),
+          ),
+        ],
+      ),
       body: new Container(
         child: new Column(
           children: <Widget>[
