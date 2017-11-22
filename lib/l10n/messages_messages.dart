@@ -15,6 +15,8 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => {
+    "send" : MessageLookupByLibrary.simpleMessage("Send"),
+    "sendMessage" : MessageLookupByLibrary.simpleMessage("Send a message"),
     "title" : MessageLookupByLibrary.simpleMessage("GrabLunch"),
     "titleChat" : MessageLookupByLibrary.simpleMessage("Where should we eat?"),
     "titleList" : MessageLookupByLibrary.simpleMessage("Let\'s eat together!")

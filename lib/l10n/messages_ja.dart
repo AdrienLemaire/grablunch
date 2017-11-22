@@ -15,6 +15,8 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => {
+    "send" : MessageLookupByLibrary.simpleMessage("送る"),
+    "sendMessage" : MessageLookupByLibrary.simpleMessage("メセージを送る"),
     "title" : MessageLookupByLibrary.simpleMessage("グラブランチ"),
     "titleChat" : MessageLookupByLibrary.simpleMessage("どこで食べたらいい？"),
     "titleList" : MessageLookupByLibrary.simpleMessage("ランチを食べませんか？")
