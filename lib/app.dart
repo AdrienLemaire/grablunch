@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:grablunch/chat.dart' show ChatScreen;
 import 'package:grablunch/list.dart' show ListScreen;
+import 'package:grablunch/localization.dart' show AppLocalizations;
 
 
 class AppScreen extends StatefulWidget {
@@ -25,7 +26,10 @@ class AppScreenState extends State<AppScreen> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text('GrabLunch ${_isListScreen ? 'List' : 'Chat'}'),
+        title: new Text(_isListScreen
+          ? AppLocalizations.of(context).titleList
+          : AppLocalizations.of(context).titleChat
+		),
         elevation:
           Theme.of(context).platform == TargetPlatform.iOS ? 0.0 : 4.0,
         actions: <Widget>[

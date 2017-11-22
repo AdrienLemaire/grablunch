@@ -4,5 +4,17 @@
     "description": "Title for the App application",
     "type": "text",
     "placeholders": {}
+  },
+  "titleList": "Let's eat together!",
+  "@titleList": {
+    "description": "Title for the List view",
+    "type": "text",
+    "placeholders": {}
+  },
+  "titleChat": "Where should we eat?",
+  "@titleChat": {
+    "description": "Title for the chat view",
+    "type": "text",
+    "placeholders": {}
   }
 }

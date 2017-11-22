@@ -6,7 +6,6 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 // Debug packages
 //import 'package:flutter/services.dart';
 //import 'package:flutter/rendering.dart';
-//import 'dart:developer';
 import 'package:grablunch/app.dart' show AppScreen;
 import 'package:grablunch/localization.dart'
   show AppLocalizations, AppLocalizationsDelegate;

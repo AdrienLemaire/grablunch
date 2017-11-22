@@ -1,5 +1,5 @@
 // DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
-// This is a library that provides messages for a messages locale. All the
+// This is a library that provides messages for a ja locale. All the
 // messages from the main program should be duplicated here with the same
 // function name.
 
@@ -11,12 +11,12 @@ final messages = new MessageLookup();
 final _keepAnalysisHappy = Intl.defaultLocale;
 
 class MessageLookup extends MessageLookupByLibrary {
-  get localeName => 'messages';
+  get localeName => 'ja';
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => {
-    "title" : MessageLookupByLibrary.simpleMessage("GrabLunch"),
-    "titleChat" : MessageLookupByLibrary.simpleMessage("Where should we eat?"),
-    "titleList" : MessageLookupByLibrary.simpleMessage("Let\'s eat together!")
+    "title" : MessageLookupByLibrary.simpleMessage("グラブランチ"),
+    "titleChat" : MessageLookupByLibrary.simpleMessage("どこで食べたらいい？"),
+    "titleList" : MessageLookupByLibrary.simpleMessage("ランチを食べませんか？")
   };
 }

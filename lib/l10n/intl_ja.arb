@@ -1,8 +1,21 @@
 {
-  "title": "Hello World",
+  "title": "グラブランチ",
   "@title": {
     "description": "Title for the App application",
     "type": "text",
     "placeholders": {}
+  },
+  "titleList": "ランチを食べませんか？",
+  "@titleList": {
+    "description": "Title for the List view",
+    "type": "text",
+    "placeholders": {}
+  },
+  "titleChat": "どこで食べたらいい？",
+  "@titleChat": {
+    "description": "Title for the chat view",
+    "type": "text",
+    "placeholders": {}
   }
+
 }
