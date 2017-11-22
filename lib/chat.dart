@@ -99,7 +99,7 @@ class ChatScreenState extends State<ChatScreen> {
             margin: const EdgeInsets.symmetric(horizontal: 4.0),
             child: Theme.of(context).platform == TargetPlatform.iOS ?
               new CupertinoButton(
-                child: new Text(AppLocalizations.of(context).send)),
+                child: new Text(AppLocalizations.of(context).send),
                 onPressed: _isComposing
                   ? () => _handleSubmitted(_textController.text) : null,
               ) :
