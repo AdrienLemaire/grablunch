@@ -41,7 +41,20 @@ class AppLocalizations {
       desc: 'Title for the chat view',
     );
   }
-
+  String get send {
+    return Intl.message(
+      'Send',
+      name: 'send',
+      desc: 'Chat view Button description',
+    );
+  }
+  String get sendMessage {
+    return Intl.message(
+      'Send a message',
+      name: 'sendMessage',
+      desc: 'Chat view helper text for the input',
+    );
+  }
 
 }
 
