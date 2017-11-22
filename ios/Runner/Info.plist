@@ -2,24 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-  <key>NSCameraUsageDescription</key>
-  <string>Share images with other chat users</string>
-  <key>NSPhotoLibraryUsageDescription</key>
-  <string>Share images with other chat users</string>
-  <key>CFBundleURLTypes</key>
-  <array>
-    <dict>
-      <key>CFBundleTypeRole</key>
-      <string>Editor</string>
-      <key>CFBundleURLSchemes</key>
-      <array>
-       <!-- reverse url of your client id, for example: --> 
-  <string>com.googleusercontent.apps.475986721233-u82gmf7ak50anens4qvdlc8pr0ih4gi1</string>
-        <!-- bundle id, for example: -->
-          <string>com.dori.grablunch</string>
-      </array>
-    </dict>
-  </array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -36,10 +18,26 @@
 	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.475986721233-u82gmf7ak50anens4qvdlc8pr0ih4gi1</string>
+				<string>com.dori.grablunch</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Share images with other chat users</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Share images with other chat users</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
