@@ -13,7 +13,7 @@ Future<Null> ensureLoggedIn() async {
   if (user == null)
     // Attempt to sign in a previously authenticated user
     user = await googleSignIn.signInSilently();
-  if (user == null)  {
+  if (user == null) {
     // Start interactive sign-in process
     await googleSignIn.signIn();
     analytics.logLogin();
