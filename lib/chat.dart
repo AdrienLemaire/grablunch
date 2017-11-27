@@ -11,6 +11,7 @@ import 'package:image_picker/image_picker.dart';
 
 import 'package:grablunch/auth.dart' show ensureLoggedIn, googleSignIn, analytics;
 import 'package:grablunch/filters.dart' show filterToday;
+import 'package:grablunch/localization.dart' show AppLocalizations;
 
 
 class ChatScreen extends StatefulWidget {
@@ -27,6 +28,11 @@ class ChatScreenState extends State<ChatScreen> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+      appBar: new AppBar(
+        title: new Text(AppLocalizations.of(context).titleChat),
+        elevation:
+          Theme.of(context).platform == TargetPlatform.iOS ? 0.0 : 4.0,
+      ),
       body: new Container(
         child: new Column(
           children: <Widget>[
@@ -91,14 +97,14 @@ class ChatScreenState extends State<ChatScreen> {
               },
               onSubmitted: _handleSubmitted,
               decoration: new InputDecoration.collapsed(
-                hintText: "Send a message"),
+                hintText: AppLocalizations.of(context).sendMessage),
             ),
           ),
           new Container(
             margin: const EdgeInsets.symmetric(horizontal: 4.0),
             child: Theme.of(context).platform == TargetPlatform.iOS ?
               new CupertinoButton(
-                child: new Text("Send"),
+                child: new Text(AppLocalizations.of(context).send),
                 onPressed: _isComposing
                   ? () => _handleSubmitted(_textController.text) : null,
               ) :
