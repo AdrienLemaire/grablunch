@@ -52,7 +52,7 @@ class ListScreenState extends State<ListScreen> {
           new IconButton(
             icon: new Icon(Icons.chat),
             tooltip: AppLocalizations.of(context).chat,
-            onPressed: Navigator.of(context).push(chatRoute),
+            onPressed: () => Navigator.of(context).pushNamed('/chat'),
           ),
         ],
       ),

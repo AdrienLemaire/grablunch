@@ -7,6 +7,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 //import 'package:flutter/services.dart';
 //import 'package:flutter/rendering.dart';
 import 'package:grablunch/list.dart' show ListScreen;
+import 'package:grablunch/chat.dart' show ChatScreen;
 import 'package:grablunch/localization.dart'
   show AppLocalizations, AppLocalizationsDelegate;
 
@@ -34,6 +35,9 @@ class GrabLunchApp extends StatelessWidget {
         const Locale('en', 'US'),
         const Locale('ja', 'JP'),
       ],
+      routes: <String, WidgetBuilder>{
+       '/chat': (BuildContext context) => new ChatScreen(),
+      },
     );
   }
 }
