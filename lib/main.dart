@@ -9,8 +9,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:grablunch/list.dart' show ListScreen;
 import 'package:grablunch/chat.dart' show ChatScreen;
 import 'package:grablunch/localization.dart'
-  show AppLocalizations, AppLocalizationsDelegate;
-
+    show AppLocalizations, AppLocalizationsDelegate;
 
 void main() {
   //debugPaintSizeEnabled=true;
@@ -21,10 +20,11 @@ class GrabLunchApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      onGenerateTitle: (BuildContext context) => AppLocalizations.of(context).title,
+      onGenerateTitle: (BuildContext context) =>
+          AppLocalizations.of(context).title,
       theme: defaultTargetPlatform == TargetPlatform.iOS
-        ? kIOSTheme
-        : kDefaultTheme,
+          ? kIOSTheme
+          : kDefaultTheme,
       home: new ListScreen(),
       localizationsDelegates: [
         const AppLocalizationsDelegate(),
@@ -36,7 +36,7 @@ class GrabLunchApp extends StatelessWidget {
         const Locale('ja', 'JP'),
       ],
       routes: <String, WidgetBuilder>{
-       '/chat': (BuildContext context) => new ChatScreen(),
+        '/chat': (BuildContext context) => new ChatScreen(),
       },
     );
   }

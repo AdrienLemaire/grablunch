@@ -7,7 +7,6 @@ final googleSignIn = new GoogleSignIn();
 final analytics = new FirebaseAnalytics();
 final auth = FirebaseAuth.instance;
 
-
 Future<Null> ensureLoggedIn() async {
   GoogleSignInAccount user = googleSignIn.currentUser;
   if (user == null)
@@ -20,11 +19,10 @@ Future<Null> ensureLoggedIn() async {
   }
   if (await auth.currentUser() == null) {
     GoogleSignInAuthentication credentials =
-      await googleSignIn.currentUser.authentication;
+        await googleSignIn.currentUser.authentication;
     await auth.signInWithGoogle(
       idToken: credentials.idToken,
       accessToken: credentials.accessToken,
     );
   }
 }
-

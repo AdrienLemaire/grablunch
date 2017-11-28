@@ -4,10 +4,10 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
 //import 'dart:developer';
 
-import 'package:grablunch/auth.dart' show ensureLoggedIn, googleSignIn, analytics;
+import 'package:grablunch/auth.dart'
+    show ensureLoggedIn, googleSignIn, analytics;
 import 'package:grablunch/filters.dart' show filterToday;
 import 'package:grablunch/localization.dart' show AppLocalizations;
-
 
 class ListScreen extends StatefulWidget {
   @override
@@ -22,9 +22,7 @@ class ListScreenState extends State<ListScreen> {
   ListScreenState() {
     reference.keepSynced(true);
     _checkIfLuncher();
-    reference.onChildChanged.listen(
-      (Event event) => _checkIfLuncher()
-    );
+    reference.onChildChanged.listen((Event event) => _checkIfLuncher());
   }
 
   Future<Null> _checkIfLuncher() async {
@@ -37,7 +35,9 @@ class ListScreenState extends State<ListScreen> {
       }
     });
     if (_luncherKey != _newKey) {
-      setState(() { _luncherKey = _newKey; });
+      setState(() {
+        _luncherKey = _newKey;
+      });
     }
   }
 
@@ -46,8 +46,7 @@ class ListScreenState extends State<ListScreen> {
     return new Scaffold(
       appBar: new AppBar(
         title: new Text(AppLocalizations.of(context).titleList),
-        elevation:
-          Theme.of(context).platform == TargetPlatform.iOS ? 0.0 : 4.0,
+        elevation: Theme.of(context).platform == TargetPlatform.iOS ? 0.0 : 4.0,
         actions: <Widget>[
           new IconButton(
             icon: new Icon(Icons.chat),
@@ -65,7 +64,8 @@ class ListScreenState extends State<ListScreen> {
                 query: filterToday(reference),
                 sort: (a, b) => b.key.compareTo(a.key),
                 padding: new EdgeInsets.all(8.0),
-                itemBuilder: (_, DataSnapshot snapshot, Animation<double> animation) {
+                itemBuilder:
+                    (_, DataSnapshot snapshot, Animation<double> animation) {
                   return new ListItem(
                     snapshot: snapshot,
                     animation: animation,
@@ -76,9 +76,10 @@ class ListScreenState extends State<ListScreen> {
           ],
         ),
         decoration: Theme.of(context).platform == TargetPlatform.iOS
-          ? new BoxDecoration(border:
-              new Border(top: new BorderSide(color: Colors.grey[200])))
-          : null,
+            ? new BoxDecoration(
+                border:
+                    new Border(top: new BorderSide(color: Colors.grey[200])))
+            : null,
       ),
       // Grab lunch button
       floatingActionButton: new FloatingActionButton(
@@ -94,7 +95,7 @@ class ListScreenState extends State<ListScreen> {
     (_luncherKey != null) ? _cancelLunch() : _joinLunch();
   }
 
-  void _joinLunch () {
+  void _joinLunch() {
     reference.push().set({
       'name': googleSignIn.currentUser.displayName,
       'photoUrl': googleSignIn.currentUser.photoUrl,
@@ -111,7 +112,6 @@ class ListScreenState extends State<ListScreen> {
   }
 }
 
-
 class ListItem extends StatelessWidget {
   ListItem({this.snapshot, this.animation});
   final DataSnapshot snapshot;
@@ -120,10 +120,7 @@ class ListItem extends StatelessWidget {
   //@override
   Widget build(BuildContext context) {
     return new SizeTransition(
-      sizeFactor: new CurvedAnimation(
-        parent: animation,
-        curve: Curves.easeOut
-      ),
+      sizeFactor: new CurvedAnimation(parent: animation, curve: Curves.easeOut),
       axisAlignment: 0.0,
       child: new Container(
         margin: const EdgeInsets.symmetric(vertical: 10.0),
@@ -131,13 +128,10 @@ class ListItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             new Container(
-              margin: const EdgeInsets.only(right: 16.0),
-              child: new CircleAvatar(
-                backgroundImage: new NetworkImage(
-                  snapshot.value['photoUrl']
-                ),
-              )
-            ),
+                margin: const EdgeInsets.only(right: 16.0),
+                child: new CircleAvatar(
+                  backgroundImage: new NetworkImage(snapshot.value['photoUrl']),
+                )),
             new Column(
               children: <Widget>[
                 new Text(snapshot.value['name']),

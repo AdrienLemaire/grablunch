@@ -4,10 +4,10 @@ import 'package:intl/intl.dart';
 
 import 'package:grablunch/l10n/messages_all.dart' show initializeMessages;
 
-
 class AppLocalizations {
   static Future<AppLocalizations> load(Locale locale) {
-    final String name = locale.countryCode.isEmpty ? locale.languageCode : locale.toString();
+    final String name =
+        locale.countryCode.isEmpty ? locale.languageCode : locale.toString();
     final String localeName = Intl.canonicalizedLocale(name);
 
     return initializeMessages(localeName).then((Null _) {
@@ -27,6 +27,7 @@ class AppLocalizations {
       desc: 'Title for the Grablunch application',
     );
   }
+
   String get titleList {
     return Intl.message(
       "Let's eat together!",
@@ -34,6 +35,7 @@ class AppLocalizations {
       desc: 'Title for the List view',
     );
   }
+
   String get titleChat {
     return Intl.message(
       'Where should we eat?',
@@ -41,6 +43,7 @@ class AppLocalizations {
       desc: 'Title for the chat view',
     );
   }
+
   String get send {
     return Intl.message(
       'Send',
@@ -48,6 +51,7 @@ class AppLocalizations {
       desc: 'Chat view Button description',
     );
   }
+
   String get sendMessage {
     return Intl.message(
       'Send a message',
@@ -55,6 +59,7 @@ class AppLocalizations {
       desc: 'Chat view helper text for the input',
     );
   }
+
   String get chat {
     return Intl.message(
       'Chat',
@@ -62,6 +67,7 @@ class AppLocalizations {
       desc: 'Tooltip for chat icon button',
     );
   }
+
   String get list {
     return Intl.message(
       'List',
@@ -69,7 +75,6 @@ class AppLocalizations {
       desc: 'Tooltip for list icon button',
     );
   }
-
 }
 
 class AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
