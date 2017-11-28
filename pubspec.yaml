@@ -16,7 +16,9 @@ dependencies:
   intl_translation: 0.15.0
 
 dev_dependencies:
-  flutter_test:
+  flutter_test:    # unit & widget tests
+    sdk: flutter
+  flutter_driver:  # integration tests
     sdk: flutter
 
 
