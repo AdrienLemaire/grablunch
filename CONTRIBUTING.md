@@ -43,3 +43,7 @@ My vim config:
 ## Build Android
 
     $ flutter build apk
+
+Install on device (example ASUS phone):
+
+    $ flutter install -d $(flutter devices | grep ASUS | awk '{print $4}')
