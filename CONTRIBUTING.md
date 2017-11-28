@@ -4,6 +4,21 @@
 
     $ flutter packages get
 
+## Set your coding env
+
+Check [Dart tools](https://www.dartlang.org/tools).
+
+My vim config:
+
+    Plug 'dart-lang/dart-vim-plugin'
+    Plug 'w0rp/ale'  " Asynchronous Lint Engine
+    let dart_style_guide = 2
+    autocmd BufWritePre *.dart :DartFmt
+    let g:ale_linters = {
+    \   'dart': ['language_server'],
+    \}
+
+
 ## Generate locales
 
     $ flutter pub pub run intl_translation:extract_to_arb --output-dir=lib/l10n lib/localization.dart
@@ -15,6 +30,7 @@
 ## Check code
 
     $ flutter analyze --watch
+    $ flutter test
 
 
 ## Run
@@ -23,6 +39,6 @@
     $ flutter run --target lib/messaging.dart   # different entrypath
     $ flutter run -d F5AZFG23U167   # device
 
-## Deploy
+## Build Android
 
     $ flutter build apk

@@ -26,3 +26,8 @@ Coming soon
 ## Chat view
 
 <img src="https://github.com/Fandekasp/grablunch/raw/master/static/chat.jpg" alt="list view" width="300" height="533">
+
+
+## Contributing
+
+Confer [CONTRIBUTING](CONTRIBUTING.md)
