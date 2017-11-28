@@ -4,6 +4,8 @@ import 'package:intl/intl.dart';
 
 import 'package:grablunch/l10n/messages_all.dart' show initializeMessages;
 
+final List<String> supportedLanguages = ['en', 'ja'];
+
 class AppLocalizations {
   static Future<AppLocalizations> load(Locale locale) {
     final String name =
@@ -80,7 +82,8 @@ class AppLocalizations {
 class AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
   const AppLocalizationsDelegate();
 
-  bool isSupported(Locale locale) => ['en', 'ja'].contains(locale.languageCode);
+  bool isSupported(Locale locale) =>
+      supportedLanguages.contains(locale.languageCode);
 
   @override
   Future<AppLocalizations> load(Locale locale) => AppLocalizations.load(locale);
