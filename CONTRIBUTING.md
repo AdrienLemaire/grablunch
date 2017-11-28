@@ -31,6 +31,7 @@ My vim config:
 
     $ flutter analyze --watch
     $ flutter test
+    $ flutter drive
 
 
 ## Run
