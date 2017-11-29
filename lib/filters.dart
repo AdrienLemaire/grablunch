@@ -5,7 +5,6 @@ Query filterToday(DatabaseReference reference) {
   DateTime now = new DateTime.now();
   DateTime today = new DateTime(now.year, now.month, now.day);
   DateTime tomorrow = new DateTime(now.year, now.month, now.day + 1);
-  debugPrint(reference);
   return reference
       .orderByChild('date')
       .startAt(today.millisecondsSinceEpoch)

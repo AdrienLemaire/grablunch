@@ -1,40 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mockito/mockito.dart';
+
+import 'package:grablunch/list.dart' show ListScreen;
+import 'package:grablunch/localization.dart' show AppLocalizations;
+
+class MockAppLocalizations extends Mock implements AppLocalizations {}
 
 void main() {
-  testWidgets('my first widget test', (WidgetTester tester) async {
-    // You can use keys to locate the widget you need to test
-    var sliderKey = new UniqueKey();
-    var value = 0.0;
+  var localizations = new MockAppLocalizations();
+  when(localizations.titleList).thenReturn("titleList");
+  //var testListScreen = new ListScreen();
+  //testListScreen.context = new Mock();
 
-    // Tells the tester to build a UI based on the widget tree passed to it
-    await tester.pumpWidget(
-      new StatefulBuilder(
-        builder: (BuildContext context, StateSetter setState) {
-          return new MaterialApp(
-            home: new Material(
-              child: new Center(
-                child: new Slider(
-                  key: sliderKey,
-                  value: value,
-                  onChanged: (double newValue) {
-                    setState(() {
-                      value = newValue;
-                    });
-                  },
-                ),
-              ),
-            ),
-          );
-        },
-      ),
-    );
-    expect(value, equals(0.0));
-
-    // Taps on the widget found by key
-    await tester.tap(find.byKey(sliderKey));
-
-    // Verifies that the widget updated the value correctly
-    expect(value, equals(0.5));
-  });
+//  testWidgets('my first widget test', (WidgetTester tester) async {
+//    await tester.pumpWidget(
+//      new StatefulBuilder(
+//        builder: (BuildContext context, StateSetter setState) {
+//          return;
+//        },
+//      ),
+//    );
+//  });
 }

@@ -33,6 +33,12 @@ My vim config:
     $ flutter test
     $ flutter drive
 
+Verify the coverage:
+
+    $ flutter test --coverage
+    $ genhtml coverage/lcov.info -o coverage
+    $ xdg-open coverage/index.html
+
 
 ## Run
 

@@ -21,7 +21,8 @@ dev_dependencies:
   flutter_driver:  # integration tests
     sdk: flutter
   mockito: 2.2.0   # required by flutter_test
-
+  #dson: ^0.5.0
+  #built_value: "^4.4.0"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://www.dartlang.org/tools/pub/pubspec
