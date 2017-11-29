@@ -12,13 +12,17 @@ dependencies:
   firebase_auth: 0.2.0
   firebase_database: 0.0.12
   firebase_storage: 0.0.5
-  intl: 0.15.2
+  intl: 0.15.2  # required by flutter_localizations
   intl_translation: 0.15.0
 
 dev_dependencies:
-  flutter_test:
+  flutter_test:    # unit & widget tests
     sdk: flutter
-
+  flutter_driver:  # integration tests
+    sdk: flutter
+  mockito: 2.2.0   # required by flutter_test
+  #dson: ^0.5.0
+  #built_value: "^4.4.0"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://www.dartlang.org/tools/pub/pubspec

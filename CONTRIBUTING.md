@@ -31,6 +31,13 @@ My vim config:
 
     $ flutter analyze --watch
     $ flutter test
+    $ flutter drive
+
+Verify the coverage:
+
+    $ flutter test --coverage
+    $ genhtml coverage/lcov.info -o coverage
+    $ xdg-open coverage/index.html
 
 
 ## Run
@@ -42,3 +49,7 @@ My vim config:
 ## Build Android
 
     $ flutter build apk
+
+Install on device (example ASUS phone):
+
+    $ flutter install -d $(flutter devices | grep ASUS | awk '{print $4}')

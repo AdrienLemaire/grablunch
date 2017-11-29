@@ -1,4 +1,5 @@
-import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_database/firebase_database.dart'
+    show DatabaseReference, Query;
 
 Query filterToday(DatabaseReference reference) {
   DateTime now = new DateTime.now();
