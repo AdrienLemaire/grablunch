@@ -89,7 +89,7 @@ DEPENDENCIES:
   - firebase_auth (from `/Users/kubotan/.pub-cache/hosted/pub.dartlang.org/firebase_auth-0.2.0/ios`)
   - firebase_database (from `/Users/kubotan/.pub-cache/hosted/pub.dartlang.org/firebase_database-0.0.12/ios`)
   - firebase_storage (from `/Users/kubotan/.pub-cache/hosted/pub.dartlang.org/firebase_storage-0.0.5/ios`)
-  - Flutter (from `/Users/kubotan/flutter/bin/cache/artifacts/engine/ios-release`)
+  - Flutter (from `/Users/kubotan/flutter/bin/cache/artifacts/engine/ios`)
   - google_sign_in (from `/Users/kubotan/.pub-cache/hosted/pub.dartlang.org/google_sign_in-0.3.1/ios`)
   - image_picker (from `/Users/kubotan/.pub-cache/hosted/pub.dartlang.org/image_picker-0.1.1/ios`)
 
@@ -103,7 +103,7 @@ EXTERNAL SOURCES:
   firebase_storage:
     :path: /Users/kubotan/.pub-cache/hosted/pub.dartlang.org/firebase_storage-0.0.5/ios
   Flutter:
-    :path: /Users/kubotan/flutter/bin/cache/artifacts/engine/ios-release
+    :path: /Users/kubotan/flutter/bin/cache/artifacts/engine/ios
   google_sign_in:
     :path: /Users/kubotan/.pub-cache/hosted/pub.dartlang.org/google_sign_in-0.3.1/ios
   image_picker:
