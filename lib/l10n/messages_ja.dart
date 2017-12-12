@@ -18,9 +18,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "chat" : MessageLookupByLibrary.simpleMessage("チャット"),
     "list" : MessageLookupByLibrary.simpleMessage("リスト"),
     "send" : MessageLookupByLibrary.simpleMessage("送る"),
-    "sendMessage" : MessageLookupByLibrary.simpleMessage("メセージを送る"),
+    "sendMessage" : MessageLookupByLibrary.simpleMessage("メッセージを入力"),
     "title" : MessageLookupByLibrary.simpleMessage("グラブランチ"),
-    "titleChat" : MessageLookupByLibrary.simpleMessage("どこで食べたらいい？"),
-    "titleList" : MessageLookupByLibrary.simpleMessage("ランチを食べませんか？")
+    "titleChat" : MessageLookupByLibrary.simpleMessage("どこに行きますか？"),
+    "titleList" : MessageLookupByLibrary.simpleMessage("ランチに行きませんか？")
   };
 }
