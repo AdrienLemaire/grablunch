@@ -1,7 +1,7 @@
 # GrabLunch
 
 ![Android ok](https://img.shields.io/badge/Android-OK-green.svg)
-![iOS not ready](https://img.shields.io/badge/iOS-Not%20ready-red.svg)
+![iOS ok](https://img.shields.io/badge/iOS-OK-green.svg)
 ![v0.1](https://img.shields.io/badge/version-v0.1-yellow.svg)
 ![travis build](https://travis-ci.org/Fandekasp/grablunch.svg?branch=master)
 
